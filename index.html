@@ -2,7 +2,7 @@
 <html>
     <head></head>
     <body>
-        <h1>Random stuff</h1>
+        <h1 id="result">Random stuff</h1>
         <h2>Hey, this is the second one!</h2>
 
 
@@ -13,5 +13,73 @@
         <h2>Hey, this is the second one!</h2>
         <h1>Hey, this is my first test</h1>
         <h2>Hey, this is the second one!</h2>
+
+        <script>
+        
+           function sum (n1, n2){
+               var result = n1 + n2;
+               return result; 
+
+               //this code is unreachable since it's after the RETURN KEYWORD
+               console.log("the result is " + result)
+                //    document.querySelector("#result").innerText = "the result of the sum is " + result;
+                console.log("hey I'm reaching this point!")
+           }
+
+           function getMeToUrlFromASIN(asin){
+               window.location.href =  "https://www.amazon.com/dp/" + asin;
+           }
+
+           function workCompleted(){
+               alert("Hey I'm done here!")
+           }
+
+           function consoleLogWorkCompleted(){
+               console.log("I'm done here!");
+           }
+
+           function noReturn(whatever, callback) {
+              document.querySelector("#result").innerText = whatever;
+              console.log(whatever);
+
+              //this could have take seconds
+              callback()
+           }
+
+           function allTheOperations(n1, n2){
+            if (n1 > n2) return { 
+                    sum: n1+n2,
+                    difference: n1-n2,
+                    multiply: n1*n2,
+                    division: n1/n2
+                }
+            else 
+                console.log("n1 must be bigger than n2")
+                // return  {
+                //     sum: n1+n2,
+                //     difference: n2-n1,
+                //     multiply: n1*n2,
+                //     division: n2/n1
+                // }
+                // return n1 > n2 ? { 
+                //         sum: n1+n2,
+                //         difference: n1-n2,
+                //         multiply: n1*n2,
+                //         division: n1/n2
+                //     } : {
+                //         sum: n1+n2,
+                //         difference: n2-n1,
+                //         multiply: n1*n2,
+                //         division: n2/n1
+                //     }
+           }
+
+           var finalResult = sum(5, 3);
+           console.log(finalResult);
+
+           var allOperationsResult = allTheOperations(10, 2)
+           console.log(allOperationsResult);
+        
+        </script>
     </body>
 </html>
