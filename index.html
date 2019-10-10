@@ -15,8 +15,59 @@
         <h2>Hey, this is the second one!</h2>
 
         <script>
+
+            function calculate(number1, number2, operator){
+
+                var result = 0;
+
+                switch(operator){
+                    case "+": result = sum(number1, number2); break;
+                    case "-": result = difference(number1, number2); break;
+                    case "*": result = multiply(number1, number2); break;
+                    case "/": result = divide(number1, number2); break;
+                    case "?": return 42
+                    default: 
+                        console.log("I cannot process operation: " + operator)
+                }
+
+                if (Number.isNaN(result))
+                    console.log("Something went wrong with the operations.")
+                else
+                    return result;
+
+                // if (operator === '+') return sum(number1, number2)
+                // else if (operator === "-") return difference(number1, number2)
+                // else if (operator === "*") return multiply(number1, number2)
+                // else if (operator === "/") return divide(number1, number2)
+                // else  console.log("I cannot process operation: " + operator)
+            }
+
+            function difference(n1,n2) {
+                return n1-n2;
+            }
+
+            function multiply(n1,n2){
+                return n1 * n2;
+            }
+
+            function divide (n1, n2){
+                if (n2 === 0) {
+                    console.log("Cannot divide by 0");
+                    return 0;
+                }
+                return n1 / n2
+            }
         
            function sum (n1, n2){
+               if (typeof(n1) === "string") 
+                    n1 = parseFloat(n1) //if you have just one line, you don't need the brackets
+
+                if (typeof(n2) === "string")
+                    n2 = parseFloat(n2) //if you have just one line, you don't need the brackets
+
+                if (Number.isNaN(n1) || Number.isNaN(n2)) //when one or both of them are NaN
+                    return Number.NaN
+                
                var result = n1 + n2;
                return result; 
 
@@ -30,9 +81,6 @@
                window.location.href =  "https://www.amazon.com/dp/" + asin;
            }
 
-           function workCompleted(){
-               alert("Hey I'm done here!")
-           }
 
            function consoleLogWorkCompleted(){
                console.log("I'm done here!");
